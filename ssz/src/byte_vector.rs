@@ -28,7 +28,7 @@ use crate::{
 #[serde(transparent)]
 pub struct ByteVector<N: ArrayLength<u8>> {
     #[serde(with = "serde_utils::prefixed_hex_or_bytes_slice")]
-    bytes: ContiguousVector<u8, N>,
+    pub bytes: ContiguousVector<u8, N>,
 }
 
 impl<N: ArrayLength<u8, ArrayType: Copy>> Copy for ByteVector<N> {}

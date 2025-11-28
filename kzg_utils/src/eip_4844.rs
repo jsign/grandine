@@ -13,6 +13,21 @@ use types::{
 
 use crate::{error::KzgError, trusted_setup, KzgBackend};
 
+pub use ssz::ByteVector;
+pub use types::preset::Mainnet;
+
+pub type MainnetBlob = Blob<Mainnet>;
+
+pub const MAINNET_BLOB_SIZE: usize = 131072;
+
+pub fn mainnet_blob_from_bytes(bytes: [u8; MAINNET_BLOB_SIZE]) -> MainnetBlob {
+    use ssz::GenericArray;
+
+    Box::new(ByteVector {
+        bytes: GenericArray::from_slice(&bytes).clone().into(),
+    })
+}
+
 pub fn blob_to_kzg_commitment<P: Preset>(
     blob: &Blob<P>,
     backend: KzgBackend,

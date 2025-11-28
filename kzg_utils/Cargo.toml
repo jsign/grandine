@@ -15,7 +15,7 @@ rust-kzg-zkcrypto = { workspace = true, optional = true }
 ssz = { workspace = true }
 thiserror = { workspace = true }
 try_from_iterator = { workspace = true }
-types = { workspace = true }
+types = { workspace = true, features = ["bls-zkcrypto"] }
 
 [dev-dependencies]
 hex = { workspace = true }

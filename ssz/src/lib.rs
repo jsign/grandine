@@ -1,5 +1,6 @@
 // These are re-exported primarily to make `ssz_derive` work without additional dependencies.
 pub use ethereum_types::H256;
+pub use generic_array::GenericArray;
 pub use hashing;
 pub use ssz_derive::Ssz;
 pub use typenum::U1;
